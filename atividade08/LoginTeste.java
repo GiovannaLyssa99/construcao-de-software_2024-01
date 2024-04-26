@@ -2,7 +2,7 @@ package atividade08;
 
 import java.util.Scanner;
 
-public class TesteLogin {
+public class LoginTeste {
     public static void main(String[] args) {
         Login login = new Login("UsuarioTeste", "SenhaTeste");
 
