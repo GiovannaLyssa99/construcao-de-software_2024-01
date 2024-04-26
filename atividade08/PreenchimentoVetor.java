@@ -25,7 +25,7 @@ public class PreenchimentoVetor {
                     vetor[index++] = numero;
                 } catch (InputMismatchException e) {
                     System.out.println("Erro: Valor informado não é numérico. Ignorando valor...");
-                    scanner.next(); // Limpa o buffer do scanner
+                    scanner.next();
                 }
             }
             

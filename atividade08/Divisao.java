@@ -9,28 +9,42 @@ public class Divisao {
         Scanner scanner = new Scanner(System.in);
         
         try {
-            System.out.print("Digite o primeiro número: ");
-            double num1 = scanner.nextDouble();
+            double num1, num2;
+            while (true) {
+                try {
+                    System.out.print("Digite o primeiro número: ");
+                    num1 = scanner.nextDouble();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Erro: Valor informado não é numérico. Digite novamente.");
+                    scanner.next();
+                }
+            }
             
-            System.out.print("Digite o segundo número: ");
-            double num2 = scanner.nextDouble();
+            while (true) {
+                try {
+                    System.out.print("Digite o segundo número: ");
+                    num2 = scanner.nextDouble();
+                    if (num2 != 0) {
+                        break;
+                    } else {
+                        System.out.println("Erro: Divisão por zero não é permitida. Digite outro valor.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Erro: Valor informado não é numérico. Digite novamente.");
+                    scanner.next();
+                }
+            }
             
             double resultado = dividir(num1, num2);
             System.out.println("Resultado da divisão: " + resultado);
             
-        } catch (InputMismatchException e) {
-            System.out.println("Erro: Valor informado não é numérico.");
-        } catch (ArithmeticException e) {
-            System.out.println("Erro: Divisão por zero não é permitida.");
         } finally {
             scanner.close();
         }
     }
     
     public static double dividir(double num1, double num2) {
-        if (num2 == 0) {
-            throw new ArithmeticException("Divisão por zero.");
-        }
         return num1 / num2;
     }
 }
